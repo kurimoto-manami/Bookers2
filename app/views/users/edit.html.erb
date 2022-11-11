@@ -1,0 +1,9 @@
+<h1>User info</h1>
+<%= from_with model:user.id do |f| %>
+  <label for="inputName">Name</label>
+  <%= f.text_fild :name,autofocus: true, id:"inputName", placeholder:"名前" %>
+  <label for="inputImage">Image</label>
+  <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
+  <label for="inputText">Introduction</label>
+  <%= f.submit "Update User" %>
+<% end %>
