@@ -12,25 +12,47 @@
 
   <body>
     <header>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to '投稿フォーム', new_book_path %>
+      <a class="navbar-brand" href="/">
+        <span>Bookers</span>
+      </a>
+      <botton class="navbar-toggler" typ="button" data-toffle="collapse" data-target="#navbarNavDropdown"
+                   aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </botton>
+      <div class="collpse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to '投稿フォーム', new_book_path, class: 'nav-link text-dark' %>
         </li>
-        <li>
-          <%= link_to 'マイページ', user_path(current_user.id) %>
+        <li "nav-item">
+          <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
         </li>
-        <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <li "nav-item">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
         </li>
-      <% else %>
-        <li>
-          <%= link_to "新規登録", new_user_registration_path %>
+        <% else %>
+        <li "nav-item">
+          <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
         </li>
-        <li>
-          <%= link_to "ログイン", new_user_session_path %>
+        <li "nav-item">
+          <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
         </li>
-      <% end %>
+        <% end %>
+        </ul>
+      </div>
     </header>
+    <main class="mb-auto">
     <%= yield %>
+    </main>
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
