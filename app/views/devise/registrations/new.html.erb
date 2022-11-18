@@ -27,7 +27,9 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= link_to @user_path, class: "btn btn-success" do %>
+      Sign up
+    <% end %>
   </div>
 <% end %>
 
