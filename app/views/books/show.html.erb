@@ -1,9 +1,22 @@
-<h2>Book detail</h2>
 <div>
-  <p><%= image_tag @book.user.get_profile_image(100,100) %></p>
-  <p><%= @book.title %></p>
-  <p><%= @book.body %></p>
-  <% if @book.user == current_user %>
-    <%= link_to 'Destroy', book_path(@book), method: :delete %>
-  <% end %>
+  <%= flash[:notice] %>
+</div>
+<div class="col-md-8 offset-md-1">
+  <h2>Book detail</h2>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>
+          <%= image_tag @book.user.get_profile_image(100,100), do %><br>
+            <%= @user.name %>
+          <% end %>
+        </td>
+        <td><%= @book.title %></td>
+        <td><%= @book.body %></td>
+        <% if @book.user == current_user %>
+          <%= link_to 'Destroy', book_path(@book), method: :delete %>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
 </div>
