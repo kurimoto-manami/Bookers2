@@ -8,16 +8,17 @@
     <tbody>
       <tr>
         <td>
-          <%= image_tag @book.user.get_profile_image(100,100) %><br>
+          <%= link_to book_path do %>
+            <%= image_tag @book.user.get_profile_image(100,100) %><br>
             <%= @user.name %>
-
+          <% end %>
         </td>
-        <td><%= @book.title %></td>
+        <td><%= link_to "@book.title",  %></td>
         <td><%= @book.body %></td>
-        <% if @book.user == current_user %>]
-          <%= link_to "Edit", book_path(@book.id), class: "btn-btn-sm btn-success" %>
+        <% if @book.user == current_user %>
+        <td><%= link_to "Edit", edit_book_path(@book.id), class: "btn-btn-sm btn-success" %></td>
 
-          <%= link_to "Destroy", book_path(@book.id), class: "btn btn-sm btn-danger destroy_book", method: :delete %>
+        <td><%= link_to "Destroy", book_path(@book.id), class: "btn btn-sm btn-danger destroy_book", method: :delete %></td>
 
         <% end %>
       </tr>

@@ -20,10 +20,17 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+   
   end
 
   def edit
     @book = Book.find(params[:id])
+    if @book.save
+      flash[:notice]= "You have updated book successfully."
+      redirect_to books_path
+    else
+      render :new
+    end
   end
 
   def destroy

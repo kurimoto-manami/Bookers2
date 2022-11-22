@@ -1,11 +1,11 @@
-
-
+<div class="container">
+  <div class="row">
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
-      <% @books.each do |book| %>
+
       <table class="table table-hover table-inverse">
-        <%= link_to book_path(book.id) do %>
-        <% end %>
+        <%#= link_to book_path(book.id) do %>
+        <%# end %>
         <thead>
           <tr>
             <th></th>
@@ -14,6 +14,7 @@
           </tr>
         </thead>
         <tbody>
+          <% @books.each do |book| %>
           <tr>
             <td>
               <%= link_to book_path(book.id) do %>
@@ -27,9 +28,10 @@
               <p><%=book.body %></p>
             </td>
           </tr>
+          <% end %>
         </tbody>
       </table>
-      <% end %>
+
     </div>
   </div>
 </div>
