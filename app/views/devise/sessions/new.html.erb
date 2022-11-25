@@ -18,7 +18,7 @@
           </div>
         <% end %>
         <div class="actions">
-          <input type="submit" name="commit" value="Log in" class="btn btn-sm btn-primary" data-disable="Log in">
+          <%= f.submit "Log in", class: "btn btn-primary" %>
         </div>
       <% end %>
       <%= render "devise/shared/links" %>
